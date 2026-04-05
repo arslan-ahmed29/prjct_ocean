@@ -1,0 +1,74 @@
+/* Same frosted-glass card style */
+.card {
+  background: rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: #fff;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Red circle badge showing number of active warnings */
+.countBadge {
+  background: #ef5350;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.3rem;
+}
+
+/* "All Clear" state */
+.allClear {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(76, 175, 80, 0.12);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.checkEmoji {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.allClearTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #a5d6a7;
+}
+
+.allClearSub {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.1rem;
+}
+
+/* Stack of alert banners */
+.alertList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

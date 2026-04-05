@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.badge {
+  /* Pill/circle shape */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;          /* Makes it a circle */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  transition: background 0.4s ease;   /* Smooth color transition if UV changes */
+}
+
+.number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.advice {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  margin: 0;
+  max-width: 120px;
+  line-height: 1.3;
+}

@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.icon {
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.height {
+  color: #fff;
+  line-height: 1;
+}
+
+.heightValue {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.heightUnit {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.swell {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.65);
+}
+
+.suitability {
+  font-size: 0.78rem;
+  font-weight: 600;
+}

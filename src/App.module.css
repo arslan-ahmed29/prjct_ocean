@@ -1,0 +1,70 @@
+/* ── App.module.css ──────────────────────────────────────────────────────────
+   Layout for the entire page: header → main content grid → footer. */
+
+/* The outer shell that stacks header, main, footer vertically */
+.shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content area — grows to fill available space (pushes footer down) */
+.main {
+  flex: 1;
+  padding: 1.5rem;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;   /* Center the content horizontally */
+}
+
+/* ── Card grid ────────────────────────────────────────────────────────────────
+   On wide screens: 2 columns.
+   On narrow screens (phones): 1 column.
+   CSS Grid handles this automatically with minmax(). */
+.grid {
+  display: grid;
+  /* Each column is at least 340px wide; if the screen is wider, use equal fractions */
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.25rem;
+  align-items: start;   /* Cards start at the top, not stretched to equal heights */
+}
+
+/* ── Loading skeleton ─────────────────────────────────────────────────────────
+   Shown while data is still being fetched. Gives a visual placeholder
+   so the page doesn't flash/jump when data arrives. */
+.skeleton {
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  /* Shimmer animation — the card appears to pulse gently */
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.skeletonWeather { height: 480px; }
+.skeletonParking { height: 360px; }
+.skeletonTraffic { height: 300px; }
+.skeletonWarnings { height: 200px; }
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* ── Error state ─────────────────────────────────────────────────────────────
+   Shown if the weather API call fails. */
+.errorCard {
+  background: rgba(239, 83, 80, 0.15);
+  border: 1px solid rgba(239, 83, 80, 0.4);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  color: #ffcdd2;
+  grid-column: 1 / -1;   /* Span all columns */
+}
+
+.errorTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #ef9a9a;
+}

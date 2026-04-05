@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.compass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  flex-shrink: 0;    /* Don't shrink the compass when space is tight */
+}
+
+.dirLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 0.05em;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.speed {
+  line-height: 1;
+}
+
+.speedValue {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.speedUnit {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.desc {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.gust {
+  font-size: 0.75rem;
+  color: rgba(255,200,100,0.9);   /* Amber tint to draw attention to gusts */
+}
