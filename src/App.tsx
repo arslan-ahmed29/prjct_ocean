@@ -118,24 +118,32 @@ function App() {
             ‹
           </button>
 
-          {/* Card viewport — only the active card is visible */}
-          <div className={styles.cardViewport}>
-            {cards.map((card, i) => (
-              <div
-                key={i}
-                className={styles.cardSlide}
-                style={{
-                  // Shift each card left/right relative to the active index
-                  transform: `translateX(${(i - activeIndex) * 100}%)`,
-                  // Only the active card is interactive and readable by screen readers
-                  visibility: i === activeIndex ? 'visible' : 'hidden',
-                  opacity: i === activeIndex ? 1 : 0,
-                }}
-                aria-hidden={i !== activeIndex}
-              >
-                {card}
-              </div>
-            ))}
+          {/* cardClip hides the horizontal overflow of off-screen cards.
+              cardViewport grows to the height of whichever card is active. */}
+          <div className={styles.cardClip}>
+            <div className={styles.cardViewport}>
+              {cards.map((card, i) => (
+                <div
+                  key={i}
+                  style={{
+                    // Active card: position:relative so the viewport stretches to its height.
+                    // Inactive cards: position:absolute so they don't affect the layout height.
+                    position: i === activeIndex ? 'relative' : 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    transform: `translateX(${(i - activeIndex) * 100}%)`,
+                    transition: 'transform 0.35s ease, opacity 0.35s ease',
+                    opacity: i === activeIndex ? 1 : 0,
+                    // Inactive cards can't be clicked or focused
+                    pointerEvents: i === activeIndex ? 'auto' : 'none',
+                  }}
+                  aria-hidden={i !== activeIndex}
+                >
+                  {card}
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Right arrow */}

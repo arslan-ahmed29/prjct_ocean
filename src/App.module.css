@@ -22,21 +22,16 @@
   gap: 0.5rem;
 }
 
-/* The window that shows exactly one card at a time */
-.cardViewport {
+/* Clips horizontal overflow so off-screen cards aren't visible */
+.cardClip {
   flex: 1;
-  position: relative;
   overflow: hidden;
-  min-height: 280px;
 }
 
-/* Each card sits in the viewport and slides left/right */
-.cardSlide {
-  position: absolute;
-  top: 0;
-  left: 0;
+/* Grows to match the active card's height — no fixed height needed */
+.cardViewport {
+  position: relative;
   width: 100%;
-  transition: transform 0.35s ease, opacity 0.35s ease;
 }
 
 /* ── Navigation arrows ──────────────────────────────────────────────────── */
