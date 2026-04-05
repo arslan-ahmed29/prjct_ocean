@@ -1,9 +1,8 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // src/data/mockWeather.ts
 //
-// Realistic sample weather data for a sunny beach day.
-// This is shown when no OpenWeatherMap API key is configured.
-// Numbers are based on a typical warm, breezy Santa Monica afternoon.
+// Realistic sample weather for a typical warm summer day at Wrightsville Beach, NC.
+// NC coast is much more humid than California — expect higher feels-like temps.
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { WeatherData } from '../types'
@@ -11,27 +10,27 @@ import { BEACH_CITY } from '../config/constants'
 
 export const mockWeather: WeatherData = {
   location: BEACH_CITY,
-  timestamp: Date.now(),           // Current time when the module is first loaded
+  timestamp: Date.now(),
 
-  condition: 'Clear',              // Clear blue sky
-  conditionCode: 800,              // OWM code 800 = "clear sky"
+  condition: 'Partly Cloudy',
+  conditionCode: 802,              // OWM code 802 = "scattered clouds"
 
-  tempC: 26,                       // 26°C = ~79°F — a pleasant warm day
-  feelsLikeC: 27,                  // Feels slightly warmer due to humidity
+  tempC: 30,                       // 30°C = 86°F — hot NC summer day
+  feelsLikeC: 35,                  // Feels like 95°F due to high humidity
 
-  humidity: 62,                    // 62% humidity — comfortable but slightly muggy
-  pressure: 1013,                  // Standard sea-level atmospheric pressure (hPa)
+  humidity: 82,                    // NC coast is very humid in summer
+  pressure: 1014,                  // Slightly above standard sea level pressure
 
-  windSpeedMs: 4.2,                // Light-moderate breeze (about 15 km/h)
-  windDeg: 315,                    // Northwest wind (typical onshore sea breeze)
-  windGustMs: 6.8,                 // Occasional gusts a bit stronger
+  windSpeedMs: 5.8,                // Moderate sea breeze off the Atlantic (~21 km/h)
+  windDeg: 202,                    // South-southwest — typical summer Atlantic coast wind
+  windGustMs: 9.2,                 // Occasional stronger gusts
 
-  uvIndex: 7,                      // "High" UV — sunscreen strongly recommended
-  visibility: 10000,               // 10 km visibility — clear day
+  uvIndex: 9,                      // Very high UV — strong mid-summer sun in NC
+  visibility: 16000,               // 16 km — clear day with slight coastal haze
 
-  // Wave height estimated from wind speed (light chop, good for swimming)
-  waveHeightM: 0.8,
-  swellDirection: 'NW',            // Waves arriving from the northwest
+  // Moderate Atlantic swell — typical for summer at Wrightsville
+  waveHeightM: 1.1,
+  swellDirection: 'SSE',           // Swell coming in from the southeast off the Atlantic
 
-  isMock: true,                    // Flag so the UI can show a "Demo data" banner
+  isMock: true,
 }

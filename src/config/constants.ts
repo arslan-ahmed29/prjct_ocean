@@ -11,10 +11,10 @@
 // These coordinates tell the weather API where our beach is.
 // To change beaches: look up the lat/lon on Google Maps (right-click → "What's here?")
 
-export const BEACH_LAT = 34.0195    // Latitude for Santa Monica, CA
-export const BEACH_LON = -118.4912  // Longitude for Santa Monica, CA
-export const BEACH_NAME = 'Santa Monica Beach'
-export const BEACH_CITY = 'Santa Monica, CA'
+export const BEACH_LAT = 34.2079    // Latitude for Wrightsville Beach, NC
+export const BEACH_LON = -77.7966   // Longitude for Wrightsville Beach, NC
+export const BEACH_NAME = 'Wrightsville Beach'
+export const BEACH_CITY = 'Wrightsville Beach, NC'
 
 
 // ── OPENWEATHERMAP API ───────────────────────────────────────────────────────
