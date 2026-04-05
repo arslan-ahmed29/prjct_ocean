@@ -1,0 +1,74 @@
+/* ── Header.module.css ──────────────────────────────────────────────────────
+   CSS Modules: every class name here is automatically scoped to this component,
+   so ".header" here won't clash with a ".header" class in another file.
+   ────────────────────────────────────────────────────────────────────────── */
+
+.header {
+  /* Frosted-glass effect: semi-transparent background with a blur behind it */
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);   /* Safari needs this prefix */
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem 2rem;
+
+  /* Stack children vertically on mobile, side-by-side on wider screens */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Beach name + wave emoji on the left */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex: 1;          /* Takes up as much space as available */
+}
+
+.wave {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.title {
+  /* Using the Playfair Display font defined in index.html */
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Clock on the right */
+.clock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-body);
+}
+
+.date {
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+.time {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Demo mode banner — full width below the header row */
+.mockBanner {
+  width: 100%;
+  background: rgba(255, 193, 7, 0.25);    /* Amber tint */
+  border: 1px solid rgba(255, 193, 7, 0.5);
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  color: #fff3cd;
+  text-align: center;
+}

@@ -1,0 +1,19 @@
+.wrapper {
+  width: 100%;
+}
+
+/* Grey background track */
+.track {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Coloured fill — width is set inline dynamically */
+.fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease, background 0.4s ease;
+}

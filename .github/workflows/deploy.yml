@@ -1,0 +1,68 @@
+# .github/workflows/deploy.yml
+#
+# This is a GitHub Actions workflow — it's a script that runs automatically
+# on GitHub's servers whenever you push code.
+#
+# What it does:
+#   1. Checks out your code
+#   2. Installs Node.js and your npm packages
+#   3. Builds the app (npm run build → creates the dist/ folder)
+#   4. Publishes the dist/ folder to GitHub Pages
+#
+# After enabling Pages in your repo settings, every push to main will
+# automatically update the live site.
+
+name: Deploy Beach Dashboard to GitHub Pages
+
+on:
+  # Run this workflow whenever code is pushed to the main branch
+  push:
+    branches:
+      - main
+  # Also allow triggering it manually from the GitHub Actions tab
+  workflow_dispatch:
+
+# Give the workflow permission to write to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only run one deployment at a time
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Download your repo's code onto the build server
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Install Node.js (the JavaScript runtime needed to build the app)
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # Step 3: Install all npm packages listed in package.json
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Build the app — outputs to the dist/ folder
+      - name: Build
+        run: npm run build
+
+      # Step 5: Package the dist/ folder for GitHub Pages
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      # Step 6: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4

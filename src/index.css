@@ -1,0 +1,80 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   src/index.css
+   Global styles and CSS custom properties (variables).
+
+   CSS custom properties (--var-name) work like variables — define them once here
+   and reference them anywhere in the app. Changing a value here changes it everywhere.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Design tokens (our beach theme) ─────────────────────────────────────────
+   These are the "palette" for the whole app. */
+:root {
+  /* Font families */
+  --font-display: 'Playfair Display', Georgia, serif;  /* For titles & headings */
+  --font-body: 'Nunito', system-ui, sans-serif;         /* For body text */
+
+  /* Ocean-to-sand gradient colors */
+  --color-ocean-deep: #0a2342;   /* Deep navy blue — top of gradient */
+  --color-ocean-mid: #1a4a7a;    /* Mid ocean blue */
+  --color-ocean-light: #2d7dd2;  /* Lighter ocean blue */
+  --color-sand: #c8a96e;         /* Sandy beige — hint at the bottom */
+}
+
+/* ── Reset ────────────────────────────────────────────────────────────────────
+   Browsers have their own default styles that differ between them.
+   We reset the most problematic ones for a consistent baseline. */
+*, *::before, *::after {
+  /* box-sizing: border-box means padding is INCLUDED in width/height calculations */
+  /* Without this, adding padding makes elements wider than expected */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Base html/body ──────────────────────────────────────────────────────────
+   Set up the ocean-to-sand gradient background. */
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: var(--font-body);
+  /* Multi-stop gradient: deep navy at top fading down through ocean blue */
+  background: linear-gradient(
+    160deg,
+    var(--color-ocean-deep) 0%,
+    var(--color-ocean-mid) 45%,
+    var(--color-ocean-light) 75%,
+    #3d8fc4 100%
+  );
+  /* Ensure background covers the full screen even if content is short */
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: #fff;
+  /* Slightly looser line height improves readability */
+  line-height: 1.5;
+  /* Smooth font rendering on Mac/WebKit */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Root element ─────────────────────────────────────────────────────────────
+   The <div id="root"> where React mounts — make it fill the full viewport height
+   so the footer always sits at the very bottom. */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Scrollbar (optional aesthetic touch for WebKit browsers) ─────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}

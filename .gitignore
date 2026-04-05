@@ -1,0 +1,18 @@
+# Dependencies — these get installed fresh with `npm install`, no need to store them
+node_modules
+
+# Build output — generated files, not source code
+dist
+
+# Local environment file — contains your private API key, NEVER commit this!
+.env
+.env.local
+
+# Editor-specific settings (personal preference files)
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

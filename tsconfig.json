@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    // Target modern browsers so we can use newer JavaScript features
+    "target": "ES2020",
+    // Use the browser's built-in APIs (like fetch, document, etc.)
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    // Use React's JSX transform (lets us write HTML-like syntax in .tsx files)
+    "jsx": "react-jsx",
+    // Enable all the strict TypeScript checks — catches more bugs early
+    "strict": true,
+    // Make sure TypeScript plays nicely with Vite's module system
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    // Don't output compiled files — Vite handles that
+    "noEmit": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"]
+}
